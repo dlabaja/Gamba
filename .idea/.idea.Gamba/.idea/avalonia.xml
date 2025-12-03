@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="Gamba/App.axaml" value="Gamba/Gamba.csproj" />
+        <entry key="Gamba/MainWindow.axaml" value="Gamba/Gamba.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
