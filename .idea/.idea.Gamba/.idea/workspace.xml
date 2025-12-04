@@ -8,10 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37db2876-60d4-4e60-8f63-0a67a66a32da" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Gamba/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gamba/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gamba/Models/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Models/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gamba/Models/SlotDrum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Models/SlotDrum.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gamba/Models/SlotMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Models/SlotMachine.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gamba/Controls/Slot/Slot.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gamba/Controls/Slot/Slot.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/MainWindow.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +37,8 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Gamba/Controls/Slot/Slot.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Gamba/Controls/Slot/Slot.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Enums/SlotSymbol.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Models/Game.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Models/SlotDrum.cs" root0="FORCE_HIGHLIGHTING" />
@@ -57,7 +59,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.Gamba.executor": "Debug",
+    ".NET Project.Gamba.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "node.js.detected.package.eslint": "true",
@@ -104,7 +106,7 @@
       <workItem from="1764792784246" duration="171000" />
       <workItem from="1764793185929" duration="6115000" />
       <workItem from="1764868071747" duration="3706000" />
-      <workItem from="1764871929739" duration="1018000" />
+      <workItem from="1764871929739" duration="4936000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -122,7 +124,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764799083965</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="game logic">
+      <option name="closed" value="true" />
+      <created>1764872956198</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1764872956198</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,11 +140,23 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="init" />
     <MESSAGE value="game engine init" />
-    <option name="LAST_COMMIT_MESSAGE" value="game engine init" />
+    <MESSAGE value="game logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="game logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

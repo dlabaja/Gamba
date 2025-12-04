@@ -4,6 +4,7 @@
     <option name="projectPerEditor">
       <map>
         <entry key="Gamba/App.axaml" value="Gamba/Gamba.csproj" />
+        <entry key="Gamba/Controls/Slot/Slot.axaml" value="Gamba/Gamba.csproj" />
         <entry key="Gamba/MainWindow.axaml" value="Gamba/Gamba.csproj" />
       </map>
     </option>
