@@ -8,11 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37db2876-60d4-4e60-8f63-0a67a66a32da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Gamba/Enums/SlotSymbol.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Gamba/Models/Game.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Gamba/Models/SlotDrum.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Gamba/Models/SlotMachine.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gamba/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gamba/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/Models/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Models/Game.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/Models/SlotDrum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Models/SlotDrum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/Models/SlotMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Models/SlotMachine.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +24,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;dlabaja&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/kmi-jcs/jcs110-dlabaja&quot;,
+    &quot;accountId&quot;: &quot;f7891704-d601-4940-bb68-aad5e62ac4ab&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Gamba/Enums/SlotSymbol.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Models/Game.cs" root0="FORCE_HIGHLIGHTING" />
@@ -46,7 +57,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.Gamba.executor": "Run",
+    ".NET Project.Gamba.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "node.js.detected.package.eslint": "true",
@@ -91,7 +102,9 @@
       <option name="presentableId" value="Default" />
       <updated>1764792784241</updated>
       <workItem from="1764792784246" duration="171000" />
-      <workItem from="1764793185929" duration="5885000" />
+      <workItem from="1764793185929" duration="6115000" />
+      <workItem from="1764868071747" duration="3706000" />
+      <workItem from="1764871929739" duration="1018000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -101,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764792892700</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="game engine init">
+      <option name="closed" value="true" />
+      <created>1764799083965</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1764799083965</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,7 +133,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="game engine init" />
+    <option name="LAST_COMMIT_MESSAGE" value="game engine init" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

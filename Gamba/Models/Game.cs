@@ -9,12 +9,20 @@ public class Game
     public int Score { get; private set; }
     public int SpeedMultiplier { get; private set; }
     private readonly Timer timer;
+    public SlotMachine SlotMachine { get; } = new SlotMachine();
+    public Action? OnGameEnd;
 
     public Game()
     {
         this.timer = new Timer();
         this.timer.AutoReset = true;
-        this.SetTimer();
+        this.timer.Elapsed += TimerOnElapsed;
+        this.StartRoll();
+    }
+
+    private void TimerOnElapsed(object? sender, ElapsedEventArgs e)
+    {
+        this.SlotMachine.RollNext();
     }
 
     private double GetCurrentInterval()
@@ -22,14 +30,44 @@ public class Game
         return Math.Clamp(300 - 10 * Level * SpeedMultiplier, 100, 300);
     }
 
-    private void SetTimer()
+    private void StartRoll()
     {
         this.timer.Interval = GetCurrentInterval();
         this.timer.Start();
     }
 
-    public void Stop()
+    private void EvaluateLevel()
+    {
+        var sameSymbolCount = this.SlotMachine.NumberOfSameSymbols();
+        switch (sameSymbolCount)
+        {
+            case 2:
+                this.Score += this.SlotMachine.GetSameSymbolSum();
+                break;
+            case 3:
+                this.Score += this.SlotMachine.GetSameSymbolSum() * Level;
+                break;
+            default:
+                this.Score -= 2 * this.SlotMachine.GetMultiple();
+                this.Level -= 2;
+                break;
+        }
+
+        this.Level++;
+    }
+
+    private void CheckGameEnded()
+    {
+        if (this.Score < -50)
+        {
+            this.OnGameEnd?.Invoke();
+        }
+    }
+
+    public void StopRoll()
     {
         this.timer.Stop();
+        this.EvaluateLevel();
+        this.CheckGameEnded();
     }
 }
