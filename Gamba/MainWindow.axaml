@@ -14,7 +14,7 @@
                 Width="200"
                 Height="200"
                 HorizontalAlignment="Left">
-                <slot:Slot Grid.Column="0" Grid.Row="0" />
+                <slot:Slot Grid.Column="0" Grid.Row="0" Symbol="DIAMOND" />
                 <slot:Slot Grid.Column="0" Grid.Row="1" />
                 <slot:Slot Grid.Column="0" Grid.Row="2" />
                 <slot:Slot Grid.Column="1" Grid.Row="0" />
