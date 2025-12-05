@@ -8,12 +8,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37db2876-60d4-4e60-8f63-0a67a66a32da" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Gamba/Models/Highscore.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gamba/ViewModels/Commands/SubmitUsernameCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gamba/ViewModels/StatsViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Gamba/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gamba/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gamba/Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Controller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gamba/Models/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Models/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gamba/ViewModels/WindowViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/ViewModels/WindowViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gamba/Views/Controls/UserComponent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gamba/Views/GameView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Views/GameView.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gamba/Views/MenuView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Views/MenuView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/ViewModels/Commands/OpenStatsCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/ViewModels/Commands/OpenStatsCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/ViewModels/GameOverViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/ViewModels/GameOverViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/Views/GameOverView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Views/GameOverView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/Views/StatsView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Views/StatsView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/Views/StatsView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Views/StatsView.axaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +50,7 @@
     <setting file="file://$PROJECT_DIR$/Gamba/Controller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Enums/SlotSymbol.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Models/Game.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Gamba/Models/Highscore.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Models/SlotDrum.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Models/SlotMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/ViewModels/Commands/ExitGameCommand.cs" root0="FORCE_HIGHLIGHTING" />
@@ -55,11 +60,11 @@
     <setting file="file://$PROJECT_DIR$/Gamba/ViewModels/GameOverViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/ViewModels/GameViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/ViewModels/MenuViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Gamba/ViewModels/StatsViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/ViewModels/ViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/ViewModels/WindowViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Views/Controls/Slot/Slot.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Views/Controls/Slot/Slot.axaml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Gamba/Views/Controls/UserComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Views/Converters/SlotSymbolToStringConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Views/GameOverView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Views/GameOverView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
@@ -134,7 +139,7 @@
       <workItem from="1764868071747" duration="3706000" />
       <workItem from="1764871929739" duration="5026000" />
       <workItem from="1764881607413" duration="2491000" />
-      <workItem from="1764946535631" duration="19144000" />
+      <workItem from="1764946535631" duration="23343000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -216,7 +221,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764973059488</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="render works again&#10;speedMultiplier">
+      <option name="closed" value="true" />
+      <created>1764973814744</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1764973814745</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +260,8 @@
     <MESSAGE value="basic game binding" />
     <MESSAGE value="first dirty gamba render" />
     <MESSAGE value="Controller and most of the stuff is now in the classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Controller and most of the stuff is now in the classes" />
+    <MESSAGE value="render works again&#10;speedMultiplier" />
+    <option name="LAST_COMMIT_MESSAGE" value="render works again&#10;speedMultiplier" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

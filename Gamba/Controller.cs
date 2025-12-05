@@ -7,7 +7,8 @@ namespace Gamba;
 
 public static class Controller
 {
-    public static Game Game { get; private set; }
+    public static Game Game { get; private set; } = new Game();
+    public static Highscore Highscore { get; } = new Highscore();
     public static event EventHandler? OnViewChange;
     public static UserControl CurrentView
     {
@@ -17,14 +18,8 @@ public static class Controller
             field = value; // nějaká novinka, prý už nepotřebuju privátní pole
             OnViewChange?.Invoke(typeof(Controller), EventArgs.Empty);
         }
-    }
-
-    static Controller()
-    {
-        Game = new Game();
-        CurrentView = new MenuView();
-    }
-
+    } = new MenuView();
+    
     public static void RenderMenu()
     {
         CurrentView = new MenuView();
@@ -32,11 +27,17 @@ public static class Controller
 
     public static void RenderGame()
     {
+        Game = new Game();
         CurrentView = new GameView();
     }
 
     public static void RenderGameOver()
     {
         CurrentView = new GameOverView();
+    }
+    
+    public static void RenderStats()
+    {
+        CurrentView = new StatsView();
     }
 }
