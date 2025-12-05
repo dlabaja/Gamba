@@ -2,12 +2,13 @@ using Gamba.Models;
 using Gamba.ViewModels.Commands;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace Gamba.ViewModels;
 
 public class GameViewModel: INotifyPropertyChanged
 {
-    public RollCommand RollCommand { get; }
+    public ICommand RollCommand { get; }
     private int score;
     private int level;
 

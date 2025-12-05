@@ -7,6 +7,9 @@
         <entry key="Gamba/Controls/Slot/Slot.axaml" value="Gamba/Gamba.csproj" />
         <entry key="Gamba/MainWindow.axaml" value="Gamba/Gamba.csproj" />
         <entry key="Gamba/Views/Controls/Slot/Slot.axaml" value="Gamba/Gamba.csproj" />
+        <entry key="Gamba/Views/GameViewq.axaml" value="Gamba/Gamba.csproj" />
+        <entry key="Gamba/Views/MenuView.axaml" value="Gamba/Gamba.csproj" />
+        <entry key="Gamba/Views/Windows/GameWindow.axaml" value="Gamba/Gamba.csproj" />
         <entry key="Gamba/Views/Windows/MainWindow.axaml" value="Gamba/Gamba.csproj" />
       </map>
     </option>

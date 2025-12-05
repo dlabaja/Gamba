@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+        <LangVersion>preview</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -20,11 +21,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Views\Controls\" />
+      <Folder Include="Views\Windows\" />
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="Views\Windows\MainWindow.axaml.cs">
+      <Compile Update="MainWindow.axaml.cs">
         <DependentUpon>MainWindow.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>

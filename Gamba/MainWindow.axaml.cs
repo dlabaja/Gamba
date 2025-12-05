@@ -1,12 +1,13 @@
 using Avalonia.Controls;
-using Gamba.ViewModels;
+using Gamba.Views;
 
-namespace Gamba.Views.Windows;
+namespace Gamba;
 
 public partial class MainWindow : Window
 {
     public MainWindow()
     {
         InitializeComponent();
+        appContent.Content = new MenuView();
     }
 }
