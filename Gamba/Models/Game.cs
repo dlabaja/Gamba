@@ -63,8 +63,20 @@ public class Game
     {
         if (this.Score < -50)
         {
-            this.OnGameEnd?.Invoke(this, EventArgs.Empty);
+            this.EndGame();
         }
+    }
+
+    private void StopTimer()
+    {
+        IsRolling = false;
+        this.timer.Stop();
+    }
+
+    public void EndGame()
+    {
+        this.StopTimer();
+        this.OnGameEnd?.Invoke(this, EventArgs.Empty);
     }
     
     public void StartRoll()
@@ -73,11 +85,10 @@ public class Game
         this.timer.Start();
         IsRolling = true;
     }
-
+    
     public void StopRoll()
     {
-        IsRolling = false;
-        this.timer.Stop();
+        this.StopTimer();
         this.EvaluateLevel();
         this.CheckGameEnded();
     }

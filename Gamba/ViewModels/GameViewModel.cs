@@ -7,6 +7,7 @@ namespace Gamba.ViewModels;
 public class GameViewModel : ViewModel
 {
     public RollCommand RollCommand { get; } = new RollCommand();
+    public EndGameCommand EndGameCommand { get; } = new EndGameCommand();
     public int Score => Controller.Game.Score;
     public int Level => Controller.Game.Level;
     public SlotSymbol Next0 => Controller.Game.SlotMachine.GetNextSymbols()[0];

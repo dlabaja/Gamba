@@ -8,15 +8,16 @@ public class GameOverViewModel : ViewModel
     public int Score => Controller.Game.Score;
     public string Username
     {
+        get;
         set
         {
-            if (value == "")
+            if (string.IsNullOrEmpty(value))
             {
                 return;
             }
 
             field = value;
-            this.OnPropertyChanged(nameof(Username));
+            OnPropertyChanged();
         }
     } = "";
 }
