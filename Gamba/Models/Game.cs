@@ -8,9 +8,10 @@ public class Game
     public int Level { get; private set; }
     public int Score { get; private set; }
     public int SpeedMultiplier { get; private set; }
-    private readonly Timer timer;
     public SlotMachine SlotMachine { get; } = new SlotMachine();
     public Action? OnGameEnd;
+    public bool IsRolling { get; private set; }
+    private readonly Timer timer;
 
     public Game()
     {
@@ -28,12 +29,6 @@ public class Game
     private double GetCurrentInterval()
     {
         return Math.Clamp(300 - 10 * Level * SpeedMultiplier, 100, 300);
-    }
-
-    private void StartRoll()
-    {
-        this.timer.Interval = GetCurrentInterval();
-        this.timer.Start();
     }
 
     private void EvaluateLevel()
@@ -63,9 +58,17 @@ public class Game
             this.OnGameEnd?.Invoke();
         }
     }
+    
+    public void StartRoll()
+    {
+        this.timer.Interval = GetCurrentInterval();
+        this.timer.Start();
+        IsRolling = true;
+    }
 
     public void StopRoll()
     {
+        IsRolling = false;
         this.timer.Stop();
         this.EvaluateLevel();
         this.CheckGameEnded();

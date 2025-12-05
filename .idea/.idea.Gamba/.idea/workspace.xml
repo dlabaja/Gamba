@@ -8,10 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37db2876-60d4-4e60-8f63-0a67a66a32da" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Gamba/Models/Controller.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gamba/ViewModels/Commands/RollCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gamba/ViewModels/GameViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gamba/Views/Windows/GameWindow.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gamba/Views/Windows/GameWindow.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gamba/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gamba/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gamba/Controls/Slot/Slot.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Controls/Slot/Slot.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gamba/Controls/Slot/Slot.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Controls/Slot/Slot.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gamba/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/MainWindow.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/App.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/App.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/Controls/Slot/Slot.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Views/Controls/Slot/Slot.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/Controls/Slot/Slot.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Views/Controls/Slot/Slot.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/Gamba.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Gamba.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Views/Windows/MainWindow.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Views/Windows/MainWindow.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/Models/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Models/Game.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,12 +46,18 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Gamba/Controls/Slot/Slot.axaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Gamba/Controls/Slot/Slot.axaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f4149a18ce3141e5ae8345ab1bd76de9ea00/c1/a8c34f87/ICommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Enums/SlotSymbol.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Gamba/Models/Controller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Models/Game.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Models/SlotDrum.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Models/SlotMachine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Gamba/ViewModels/Commands/RollCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Gamba/ViewModels/GameViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Gamba/Views/Controls/Slot/Slot.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Gamba/Views/Controls/Slot/Slot.axaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Gamba/Views/Windows/GameWindow.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Gamba/Views/Windows/GameWindow.axaml.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -107,7 +122,8 @@
       <workItem from="1764793185929" duration="6115000" />
       <workItem from="1764868071747" duration="3706000" />
       <workItem from="1764871929739" duration="5026000" />
-      <workItem from="1764881607413" duration="1888000" />
+      <workItem from="1764881607413" duration="2491000" />
+      <workItem from="1764946535631" duration="4055000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -141,7 +157,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764879154897</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="emoji v ui">
+      <option name="closed" value="true" />
+      <created>1764883507254</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1764883507254</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,7 +190,8 @@
     <MESSAGE value="game engine init" />
     <MESSAGE value="game logic" />
     <MESSAGE value="ui is my pešn" />
-    <option name="LAST_COMMIT_MESSAGE" value="ui is my pešn" />
+    <MESSAGE value="emoji v ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="emoji v ui" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

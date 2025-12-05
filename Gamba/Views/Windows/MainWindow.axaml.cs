@@ -1,6 +1,7 @@
 using Avalonia.Controls;
+using Gamba.ViewModels;
 
-namespace Gamba;
+namespace Gamba.Views.Windows;
 
 public partial class MainWindow : Window
 {

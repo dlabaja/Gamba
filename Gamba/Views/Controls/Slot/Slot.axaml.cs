@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Gamba.Enums;
 
-namespace Gamba.Controls.Slot;
+namespace Gamba.Views.Controls.Slot;
 
 public partial class Slot : UserControl
 {
@@ -39,7 +39,6 @@ public partial class Slot : UserControl
     public Slot()
     {
         InitializeComponent();
-        DataContext = this;
     }
 }
 

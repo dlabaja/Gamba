@@ -2,10 +2,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:slot="clr-namespace:Gamba.Controls.Slot"
+             xmlns:slot="clr-namespace:Gamba.Views.Controls.Slot"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Gamba.Controls.Slot.Slot">
-    <Button 
+             x:Class="Gamba.Views.Controls.Slot.Slot">
+    <Button
         HorizontalAlignment="Stretch"
         VerticalAlignment="Stretch"
         HorizontalContentAlignment="Center"
