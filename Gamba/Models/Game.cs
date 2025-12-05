@@ -6,12 +6,13 @@ namespace Gamba.Models;
 
 public class Game
 {
-    public int Level { get; private set; }
+    public int Level { get; private set; } = 1;
     public int Score { get; private set; }
     public int SpeedMultiplier { get; private set; }
     public SlotMachine SlotMachine { get; } = new SlotMachine();
     public bool IsRolling { get; private set; }
-    public Action? OnGameEnd;
+    public event EventHandler? OnGameEnd;
+    public event EventHandler? OnNextRoll;
     private readonly Timer timer;
 
     public Game()
@@ -24,6 +25,7 @@ public class Game
     private void TimerOnElapsed(object? sender, ElapsedEventArgs e)
     {
         this.SlotMachine.RollNext();
+        this.OnNextRoll?.Invoke(this, EventArgs.Empty);
     }
 
     private double GetCurrentInterval()
@@ -33,7 +35,6 @@ public class Game
 
     private void EvaluateLevel()
     {
-        Console.WriteLine(String.Join(",", this.SlotMachine.GetCurrentSymbols().Select(x => x.ToString())));
         var sameSymbolCount = this.SlotMachine.NumberOfSameSymbols();
         switch (sameSymbolCount)
         {
@@ -56,7 +57,7 @@ public class Game
     {
         if (this.Score < -50)
         {
-            this.OnGameEnd?.Invoke();
+            this.OnGameEnd?.Invoke(this, EventArgs.Empty);
         }
     }
     

@@ -2,9 +2,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:Gamba.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Gamba.MainWindow"
-        Name="mainWindow"
+        x:DataType="viewModels:WindowViewModel"
         Title="Gamba">
-    <ContentControl Name="appContent"/>
+    <ContentControl Content="{Binding CurrentViewModel}"/>
 </Window>

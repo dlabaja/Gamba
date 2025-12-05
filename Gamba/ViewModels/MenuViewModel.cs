@@ -1,17 +1,12 @@
-using Avalonia.Interactivity;
-using Gamba.Views;
-using System;
+using Gamba.ViewModels.Commands;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace Gamba.ViewModels;
 
-public class MenuViewModel : INotifyPropertyChanged
+public class MenuViewModel : ViewModel
 {
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
+    public PlayGameCommand PlayGameCommand { get; } = new PlayGameCommand();
+    public OpenStatsCommand OpenStatsCommand { get; } = new OpenStatsCommand();
+    public ExitGameCommand ExitGameCommand { get; } = new ExitGameCommand();
 }

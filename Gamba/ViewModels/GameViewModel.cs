@@ -1,19 +1,12 @@
-using Avalonia.Threading;
 using Gamba.Enums;
-using Gamba.Models;
 using Gamba.ViewModels.Commands;
 using System;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace Gamba.ViewModels;
 
-public class GameViewModel : INotifyPropertyChanged
+public class GameViewModel : ViewModel
 {
-    public ICommand RollCommand { get; } = new RollCommand();
+    public RollCommand RollCommand { get; } = new RollCommand();
     public int Score => Controller.Game.Score;
     public int Level => Controller.Game.Level;
     public SlotSymbol Next0 => Controller.Game.SlotMachine.GetNextSymbols()[0];
@@ -28,24 +21,18 @@ public class GameViewModel : INotifyPropertyChanged
 
     public GameViewModel()
     {
-        StartRender();
+        this.RollCommand.OnExecute += RollCommandOnOnExecute;
+        Controller.Game.OnNextRoll += OnNextRoll;
+        Controller.Game.OnGameEnd += GameOnOnGameEnd;
     }
 
-    public void StartRender()
+    private void GameOnOnGameEnd(object? sender, EventArgs e)
     {
-        var timer = new DispatcherTimer();
-        timer.Interval = TimeSpan.FromMilliseconds(16); // ~60 FPS
-        timer.Tick += (s, e) =>
-        {
-            Refresh(); // zavoláš OnPropertyChanged na vše potřebné
-        };
-        timer.Start();
+        Controller.RenderGameOver();
     }
 
-    private void Refresh()
+    private void OnNextRoll(object? sender, EventArgs e)
     {
-        OnPropertyChanged(nameof(Score));
-        OnPropertyChanged(nameof(Level));
         OnPropertyChanged(nameof(Next0));
         OnPropertyChanged(nameof(Next1));
         OnPropertyChanged(nameof(Next2));
@@ -56,12 +43,10 @@ public class GameViewModel : INotifyPropertyChanged
         OnPropertyChanged(nameof(Prev1));
         OnPropertyChanged(nameof(Prev2));
     }
-    
-    public event PropertyChangedEventHandler? PropertyChanged;
 
-
-    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    private void RollCommandOnOnExecute(object? sender, EventArgs eventArgs)
     {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        OnPropertyChanged(nameof(Score));
+        OnPropertyChanged(nameof(Level));
     }
 }

@@ -1,5 +1,5 @@
 using Avalonia.Controls;
-using Gamba.Views;
+using Gamba.ViewModels;
 
 namespace Gamba;
 
@@ -8,6 +8,6 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        appContent.Content = new MenuView();
+        this.DataContext = new WindowViewModel();
     }
 }
