@@ -1,17 +1,18 @@
+using Avalonia.Controls;
 using System;
 
 namespace Gamba.ViewModels;
 
 public class WindowViewModel : ViewModel
 {
-    public ViewModel CurrentViewModel => Controller.CurrentViewModel;
+    public UserControl CurrentViewModel => Controller.CurrentView;
     
     public WindowViewModel()
     {
-        Controller.OnViewModelChange += ControllerOnOnViewModelChange;
+        Controller.OnViewChange += ControllerOnOnViewChange;
     }
 
-    private void ControllerOnOnViewModelChange(object? sender, EventArgs e)
+    private void ControllerOnOnViewChange(object? sender, EventArgs e)
     {
         OnPropertyChanged(nameof(CurrentViewModel));
     }

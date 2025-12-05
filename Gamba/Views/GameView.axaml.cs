@@ -1,10 +1,9 @@
 using Avalonia.Controls;
 using Gamba.ViewModels;
-using Gamba.Views.Controls;
 
 namespace Gamba.Views;
 
-public partial class GameView : UserComponent
+public partial class GameView : UserControl
 {
     public GameView()
     {

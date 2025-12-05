@@ -1,6 +1,6 @@
+using Avalonia.Controls;
 using Gamba.Models;
-using Gamba.ViewModels;
-using Gamba.ViewModels.Commands;
+using Gamba.Views;
 using System;
 
 namespace Gamba;
@@ -8,35 +8,35 @@ namespace Gamba;
 public static class Controller
 {
     public static Game Game { get; private set; }
-    public static event EventHandler? OnViewModelChange;
-    public static ViewModel CurrentViewModel
+    public static event EventHandler? OnViewChange;
+    public static UserControl CurrentView
     {
         get;
         private set
         {
             field = value; // nějaká novinka, prý už nepotřebuju privátní pole
-            OnViewModelChange?.Invoke(typeof(Controller), EventArgs.Empty);
+            OnViewChange?.Invoke(typeof(Controller), EventArgs.Empty);
         }
     }
 
     static Controller()
     {
         Game = new Game();
-        CurrentViewModel = new MenuViewModel();
+        CurrentView = new MenuView();
     }
 
     public static void RenderMenu()
     {
-        CurrentViewModel = new MenuViewModel();
+        CurrentView = new MenuView();
     }
 
     public static void RenderGame()
     {
-        CurrentViewModel = new GameViewModel();
+        CurrentView = new GameView();
     }
 
     public static void RenderGameOver()
     {
-        CurrentViewModel = new GameOverViewModel();
+        CurrentView = new GameOverView();
     }
 }

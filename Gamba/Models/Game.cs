@@ -7,13 +7,14 @@ namespace Gamba.Models;
 public class Game
 {
     public int Level { get; private set; } = 1;
-    public int Score { get; private set; }
-    public int SpeedMultiplier { get; private set; }
+    public int Score { get; private set; } = 100;
+    public double SpeedMultiplier { get; private set; } = 1;
     public SlotMachine SlotMachine { get; } = new SlotMachine();
     public bool IsRolling { get; private set; }
     public event EventHandler? OnGameEnd;
     public event EventHandler? OnNextRoll;
     private readonly Timer timer;
+    private const double SPEED_MULTIPLIER_FACTOR = 1.1;
 
     public Game()
     {
@@ -30,7 +31,7 @@ public class Game
 
     private double GetCurrentInterval()
     {
-        return Math.Clamp(300 - 10 * Level * SpeedMultiplier, 100, 300);
+        return Math.Clamp(300 - 10 * SpeedMultiplier, 40, 300);
     }
 
     private void EvaluateLevel()
@@ -46,11 +47,16 @@ public class Game
                 break;
             default:
                 this.Score -= 2 * this.SlotMachine.GetMultiple();
-                this.Level -= 2;
-                break;
+                if (this.Level > 1)
+                {
+                    this.Level -= 1;
+                    this.SpeedMultiplier /= SPEED_MULTIPLIER_FACTOR;
+                }
+                return;
         }
 
         this.Level++;
+        this.SpeedMultiplier *= SPEED_MULTIPLIER_FACTOR;
     }
 
     private void CheckGameEnded()

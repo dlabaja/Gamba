@@ -1,11 +1,9 @@
-using Avalonia.Interactivity;
+using Avalonia.Controls;
 using Gamba.ViewModels;
-using Gamba.Views.Controls;
-using System;
 
 namespace Gamba.Views;
 
-public partial class MenuView : UserComponent
+public partial class MenuView : UserControl
 {
     public MenuView()
     {
