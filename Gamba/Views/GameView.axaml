@@ -7,7 +7,11 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Gamba.Views.GameView"
              x:DataType="viewModels:GameViewModel">
-    <Grid>
+    <StackPanel>
+        <StackPanel>
+            <TextBlock Text="{Binding Level, StringFormat=Level: {0}}"/>
+            <TextBlock Text="{Binding Score, StringFormat=Score: {0}}"/>
+        </StackPanel>
         <WrapPanel>
             <Grid
                 ColumnDefinitions="*,*,*"
@@ -15,15 +19,15 @@
                 Width="200"
                 Height="200"
                 HorizontalAlignment="Left">
-                <slot:Slot Grid.Column="0" Grid.Row="0" Symbol="DIAMOND" />
-                <slot:Slot Grid.Column="0" Grid.Row="1" />
-                <slot:Slot Grid.Column="0" Grid.Row="2" />
-                <slot:Slot Grid.Column="1" Grid.Row="0" />
-                <slot:Slot Grid.Column="1" Grid.Row="1" />
-                <slot:Slot Grid.Column="1" Grid.Row="2" />
-                <slot:Slot Grid.Column="2" Grid.Row="0" />
-                <slot:Slot Grid.Column="2" Grid.Row="1" />
-                <slot:Slot Grid.Column="2" Grid.Row="2" />
+                <slot:Slot Grid.Column="0" Grid.Row="0" Symbol="{Binding NextSymbols[0]}" />
+                <slot:Slot Grid.Column="0" Grid.Row="1" Symbol="{Binding NextSymbols[1]}"/>
+                <slot:Slot Grid.Column="0" Grid.Row="2" Symbol="{Binding NextSymbols[2]}"/>
+                <slot:Slot Grid.Column="1" Grid.Row="0" Symbol="{Binding CurrentSymbols[0]}"/>
+                <slot:Slot Grid.Column="1" Grid.Row="1" Symbol="{Binding CurrentSymbols[1]}"/>
+                <slot:Slot Grid.Column="1" Grid.Row="2" Symbol="{Binding CurrentSymbols[2]}"/>
+                <slot:Slot Grid.Column="2" Grid.Row="0" Symbol="{Binding PrevSymbols[0]}"/>
+                <slot:Slot Grid.Column="2" Grid.Row="1" Symbol="{Binding PrevSymbols[1]}"/>
+                <slot:Slot Grid.Column="2" Grid.Row="2" Symbol="{Binding PrevSymbols[2]}"/>
             </Grid>
             <Button
                 Command="{Binding RollCommand}"
@@ -31,5 +35,5 @@
                 Gamba
             </Button>
         </WrapPanel>
-    </Grid>
+    </StackPanel>
 </UserControl>

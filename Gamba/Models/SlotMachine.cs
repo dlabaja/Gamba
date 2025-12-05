@@ -1,5 +1,5 @@
 using Gamba.Enums;
-using System.Collections.Generic;
+using System;
 using System.Linq;
 
 namespace Gamba.Models;
@@ -16,6 +16,26 @@ public class SlotMachine
             .OrderByDescending(g => g.Count())
             .First()
             .Key;
+    }
+
+    public SlotSymbol[] GetNextSymbols()
+    {
+        return this.GetSymbols(drum => drum.NextSymbol);
+    }
+    
+    public SlotSymbol[] GetCurrentSymbols()
+    {
+        return this.GetSymbols(drum => drum.CurrentSymbol);
+    }
+    
+    public SlotSymbol[] GetPrevSymbols()
+    {
+        return this.GetSymbols(drum => drum.PrevSymbol);
+    }
+
+    private SlotSymbol[] GetSymbols(Func<SlotDrum,SlotSymbol> selector)
+    {
+        return slotDrums.Select(selector).ToArray();
     }
 
     public int GetMultiple()

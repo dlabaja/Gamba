@@ -1,3 +1,4 @@
+using Gamba.Enums;
 using Gamba.Models;
 using Gamba.ViewModels.Commands;
 using System.ComponentModel;
@@ -8,26 +9,12 @@ namespace Gamba.ViewModels;
 
 public class GameViewModel: INotifyPropertyChanged
 {
-    public ICommand RollCommand { get; }
-    private int score;
-    private int level;
-
-    public GameViewModel()
-    {
-        RollCommand = new RollCommand();
-        this.score = Controller.Game.Score;
-        this.level = Controller.Game.Level;
-    }
-    
-    public int Score
-    {
-        get { return score; }
-    }
-    
-    public int Level
-    {
-        get { return level; }
-    }
+    public ICommand RollCommand { get; } = new RollCommand();
+    public int Score { get; } = Controller.Game.Score;
+    public int Level { get; } = Controller.Game.Level;
+    public SlotSymbol[] NextSymbols { get; } = Controller.Game.SlotMachine.GetNextSymbols();
+    public SlotSymbol[] CurrentSymbols { get; } = Controller.Game.SlotMachine.GetCurrentSymbols();
+    public SlotSymbol[] PrevSymbols { get; } = Controller.Game.SlotMachine.GetPrevSymbols();
 
     public event PropertyChangedEventHandler? PropertyChanged;
 

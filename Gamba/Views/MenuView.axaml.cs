@@ -1,6 +1,6 @@
-using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Gamba.Views.Controls;
+using System;
 
 namespace Gamba.Views;
 
@@ -11,9 +11,19 @@ public partial class MenuView : UserComponent
         InitializeComponent();
     }
 
-    private void PlayGameOnClick(object? sender, RoutedEventArgs e)
+    private void PlayGame(object? sender, RoutedEventArgs e)
     {
         this.SetView(new GameView());
+    }
+
+    private void Exit(object? sender, RoutedEventArgs e)
+    {
+        Environment.Exit(0);
+    }
+
+    private void Stats(object? sender, RoutedEventArgs e)
+    {
+        throw new NotImplementedException();
     }
 }
 
