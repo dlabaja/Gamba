@@ -8,16 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37db2876-60d4-4e60-8f63-0a67a66a32da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Gamba/ViewModels/MenuViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Gamba/Views/StatsView.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Gamba/Views/StatsView.axaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Gamba/Views/Converters/SlotSymbolToStringConverter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gamba/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gamba/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gamba/Gamba.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Gamba.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gamba/Models/SlotMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Models/SlotMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/Models/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Models/Game.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gamba/ViewModels/GameViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/ViewModels/GameViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/Views/Controls/Slot/Slot.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Views/Controls/Slot/Slot.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamba/Views/Controls/Slot/Slot.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Views/Controls/Slot/Slot.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gamba/Views/GameView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Views/GameView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gamba/Views/MenuView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Views/MenuView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gamba/Views/MenuView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Gamba/Views/MenuView.axaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +55,7 @@
     <setting file="file://$PROJECT_DIR$/Gamba/Views/Controls/Slot/Slot.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Views/Controls/Slot/Slot.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Views/Controls/UserComponent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Gamba/Views/Converters/SlotSymbolToStringConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Views/GameView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Views/GameView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Gamba/Views/MenuView.axaml" root0="FORCE_HIGHLIGHTING" />
@@ -131,7 +129,7 @@
       <workItem from="1764868071747" duration="3706000" />
       <workItem from="1764871929739" duration="5026000" />
       <workItem from="1764881607413" duration="2491000" />
-      <workItem from="1764946535631" duration="10471000" />
+      <workItem from="1764946535631" duration="14734000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -189,7 +187,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764962880199</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="basic game binding">
+      <option name="closed" value="true" />
+      <created>1764964775687</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1764964775687</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,7 +223,8 @@
     <MESSAGE value="emoji v ui" />
     <MESSAGE value="struggling with mvvm" />
     <MESSAGE value="userComponent middle class" />
-    <option name="LAST_COMMIT_MESSAGE" value="userComponent middle class" />
+    <MESSAGE value="basic game binding" />
+    <option name="LAST_COMMIT_MESSAGE" value="basic game binding" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

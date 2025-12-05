@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Timers;
 
 namespace Gamba.Models;
@@ -9,8 +10,8 @@ public class Game
     public int Score { get; private set; }
     public int SpeedMultiplier { get; private set; }
     public SlotMachine SlotMachine { get; } = new SlotMachine();
-    public Action? OnGameEnd;
     public bool IsRolling { get; private set; }
+    public Action? OnGameEnd;
     private readonly Timer timer;
 
     public Game()
@@ -18,7 +19,6 @@ public class Game
         this.timer = new Timer();
         this.timer.AutoReset = true;
         this.timer.Elapsed += TimerOnElapsed;
-        this.StartRoll();
     }
 
     private void TimerOnElapsed(object? sender, ElapsedEventArgs e)
@@ -33,6 +33,7 @@ public class Game
 
     private void EvaluateLevel()
     {
+        Console.WriteLine(String.Join(",", this.SlotMachine.GetCurrentSymbols().Select(x => x.ToString())));
         var sameSymbolCount = this.SlotMachine.NumberOfSameSymbols();
         switch (sameSymbolCount)
         {

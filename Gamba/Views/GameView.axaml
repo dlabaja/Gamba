@@ -19,15 +19,15 @@
                 Width="200"
                 Height="200"
                 HorizontalAlignment="Left">
-                <slot:Slot Grid.Column="0" Grid.Row="0" Symbol="{Binding NextSymbols[0]}" />
-                <slot:Slot Grid.Column="0" Grid.Row="1" Symbol="{Binding NextSymbols[1]}"/>
-                <slot:Slot Grid.Column="0" Grid.Row="2" Symbol="{Binding NextSymbols[2]}"/>
-                <slot:Slot Grid.Column="1" Grid.Row="0" Symbol="{Binding CurrentSymbols[0]}"/>
-                <slot:Slot Grid.Column="1" Grid.Row="1" Symbol="{Binding CurrentSymbols[1]}"/>
-                <slot:Slot Grid.Column="1" Grid.Row="2" Symbol="{Binding CurrentSymbols[2]}"/>
-                <slot:Slot Grid.Column="2" Grid.Row="0" Symbol="{Binding PrevSymbols[0]}"/>
-                <slot:Slot Grid.Column="2" Grid.Row="1" Symbol="{Binding PrevSymbols[1]}"/>
-                <slot:Slot Grid.Column="2" Grid.Row="2" Symbol="{Binding PrevSymbols[2]}"/>
+                <slot:Slot Grid.Row="0" Grid.Column="0" Symbol="{Binding Next0}"/>
+                <slot:Slot Grid.Row="0" Grid.Column="1" Symbol="{Binding Next1}"/>
+                <slot:Slot Grid.Row="0" Grid.Column="2" Symbol="{Binding Next2}"/>
+                <slot:Slot Grid.Row="1" Grid.Column="0" Symbol="{Binding Curr0}"/>
+                <slot:Slot Grid.Row="1" Grid.Column="1" Symbol="{Binding Curr1}"/>
+                <slot:Slot Grid.Row="1" Grid.Column="2" Symbol="{Binding Curr2}"/>
+                <slot:Slot Grid.Row="2" Grid.Column="0" Symbol="{Binding Prev0}"/>
+                <slot:Slot Grid.Row="2" Grid.Column="1" Symbol="{Binding Prev1}"/>
+                <slot:Slot Grid.Row="2" Grid.Column="2" Symbol="{Binding Prev2}"/>
             </Grid>
             <Button
                 Command="{Binding RollCommand}"
