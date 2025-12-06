@@ -7,6 +7,19 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Gamba.Views.GameView"
              x:DataType="viewModels:GameViewModel">
+    <UserControl.Styles>
+        <Style Selector="StackPanel.CanvasPanel">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <ThicknessTransition 
+                        Property="Margin" 
+                        Duration="0:0:0.3" 
+                        Easing="CubicEaseOut"
+                    />
+                </Transitions>
+            </Setter>
+        </Style>
+    </UserControl.Styles> 
     <Grid>
         <StackPanel>
             <TextBlock Text="{Binding Level, StringFormat=Level: {0}}" />
@@ -14,11 +27,15 @@
         </StackPanel>
         <WrapPanel>
             <Canvas Width="300" Height="300" ClipToBounds="True">
-                <slotRow:SlotRow Canvas.Top="-200" Symbols="{Binding TopTop}" Name="TopTop" />
-                <slotRow:SlotRow Canvas.Top="-100" Symbols="{Binding Top}" Name="Top" />
-                <slotRow:SlotRow Canvas.Top="0" Symbols="{Binding Next}" Name="Next" />
-                <slotRow:SlotRow Canvas.Top="100" Symbols="{Binding Current}" Name="Current" />
-                <slotRow:SlotRow Canvas.Top="200" Symbols="{Binding Prev}" Name="Prev" />
+                <StackPanel Name="CanvasPanel" Canvas.Bottom="0" Classes="CanvasPanel">
+                    <ItemsControl ItemsSource="{Binding Slots}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <slotRow:SlotRow Symbols="{Binding}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
             </Canvas>
             <Button
                 Command="{Binding RollCommand}"
@@ -29,11 +46,6 @@
                 Click="Button_OnClick"
                 HorizontalAlignment="Right">
                 Start
-            </Button>
-            <Button
-                Click="Button_OnClickk"
-                HorizontalAlignment="Right">
-                Reset
             </Button>
             <Button
                 Command="{Binding EndGameCommand}"
