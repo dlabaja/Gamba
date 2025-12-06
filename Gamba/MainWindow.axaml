@@ -7,6 +7,8 @@
         x:Class="Gamba.MainWindow"
         x:DataType="viewModels:WindowViewModel"
         Initialized="OnInitialized"
+        Width="1200"
+        Height="800"
         Title="Gamba">
     <ContentControl Content="{Binding CurrentViewModel}"/>
 </Window>

@@ -9,15 +9,15 @@
     <UserControl.Resources>
         <converters:SlotSymbolToStringConverter x:Key="SlotSymbolToStringConverter" />
     </UserControl.Resources>
-    <Button
+    <TextBlock
         HorizontalAlignment="Stretch"
         VerticalAlignment="Stretch"
-        HorizontalContentAlignment="Center"
-        VerticalContentAlignment="Center"
         FontFamily="Noto Color Emoji, Segoe UI Emoji"
         FontSize="30"
-        Content="{Binding Symbol, 
+        Background="Transparent"
+        ClipToBounds="False"
+        Text="{Binding Symbol, 
         RelativeSource={RelativeSource AncestorType=slot:Slot}, 
         Converter={StaticResource SlotSymbolToStringConverter}}">
-    </Button>
+    </TextBlock>
 </UserControl>

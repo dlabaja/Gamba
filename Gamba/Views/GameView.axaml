@@ -9,23 +9,24 @@
              x:DataType="viewModels:GameViewModel">
     <StackPanel>
         <StackPanel>
-            <TextBlock Text="{Binding Level, StringFormat=Level: {0}}"/>
-            <TextBlock Text="{Binding Score, StringFormat=Score: {0}}"/>
+            <TextBlock Text="{Binding Level, StringFormat=Level: {0}}" />
+            <TextBlock Text="{Binding Score, StringFormat=Score: {0}}" />
         </StackPanel>
         <WrapPanel>
-            <Grid
-                RowDefinitions="*,*,*"
-                Width="200"
-                Height="200"
-                HorizontalAlignment="Left">
-                <slotRow:SlotRow Grid.Row="0" Symbols="{Binding Next}" />
-                <slotRow:SlotRow Grid.Row="1" Symbols="{Binding Current}" />
-                <slotRow:SlotRow Grid.Row="2" Symbols="{Binding Prev}" />
-            </Grid>
+            <Canvas Width="400" Height="400">
+                <slotRow:SlotRow Height="400" Margin="0 0 0 0" Symbols="{Binding Next}" />
+                <slotRow:SlotRow Height="400" Margin="0 100 0 0" Symbols="{Binding Current}" />
+                <slotRow:SlotRow Height="400" Margin="0 200 0 0" Symbols="{Binding Prev}" />
+            </Canvas>
             <Button
                 Command="{Binding RollCommand}"
                 HorizontalAlignment="Right">
                 Gamba
+            </Button>
+            <Button
+                Click="SpinButton_OnClick"
+                HorizontalAlignment="Right">
+                Spin
             </Button>
             <Button
                 Command="{Binding EndGameCommand}"

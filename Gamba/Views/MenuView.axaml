@@ -6,15 +6,31 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Gamba.Views.MenuView"
              x:DataType="viewModels:MenuViewModel">
-    <StackPanel>
-        <Button
-            Command="{Binding PlayGameCommand}"
-            Content="Play" />
-        <Button
-            Command="{Binding OpenStatsCommand}"
-            Content="Stats" />
-        <Button
-            Command="{Binding ExitGameCommand}"
-            Content="Exit" />
+    <UserControl.Styles>
+        <Style Selector="Button.MenuButton">
+            <Setter Property="FontSize" Value="36" />
+            <Setter Property="Margin" Value="0 8" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
+    </UserControl.Styles>
+    <StackPanel Margin="32 32" MaxWidth="800">
+        <Image
+            Source="avares://Gamba/Assets/img/logo.png" 
+            Margin="0 0 0 32"/>
+        <StackPanel MaxWidth="300">
+            <Button
+                Classes="MenuButton"
+                Command="{Binding PlayGameCommand}"
+                Content="Play" />
+            <Button
+                Classes="MenuButton"
+                Command="{Binding OpenStatsCommand}"
+                Content="Stats" />
+            <Button
+                Classes="MenuButton"
+                Command="{Binding ExitGameCommand}"
+                Content="Exit" />
+        </StackPanel>
     </StackPanel>
 </UserControl>
