@@ -19,6 +19,9 @@
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
         <PackageReference Include="LibVLCSharp.Avalonia" Version="3.9.5" />
+        <Content Include="Assets\**\*">
+    		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  	</Content>
     </ItemGroup>
 
     <ItemGroup>
@@ -26,5 +29,9 @@
         <DependentUpon>MainWindow.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Assets\music\" />
     </ItemGroup>
 </Project>

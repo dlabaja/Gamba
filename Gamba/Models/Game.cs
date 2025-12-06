@@ -1,3 +1,4 @@
+using Gamba.Enums;
 using System;
 using System.Linq;
 using System.Timers;
@@ -12,6 +13,12 @@ public class Game
     public bool IsRolling { get; private set; }
     public event EventHandler? OnGameEnd;
     public event EventHandler? OnNextRoll;
+    public event EventHandler? OnRollStart;
+    public event EventHandler? OnRollEnd;
+    public event EventHandler? OnTwoSymbolWin;
+    public event EventHandler? OnThreeSymbolWin;
+    public event EventHandler? OnJackpot;
+    public event EventHandler? OnLose;
     private readonly Timer timer;
 
     public Game()
@@ -39,11 +46,21 @@ public class Game
         {
             case 2:
                 this.Score += this.SlotMachine.GetSameSymbolSum();
+                this.OnTwoSymbolWin?.Invoke(this, EventArgs.Empty);
                 break;
             case 3:
                 this.Score += this.SlotMachine.GetSameSymbolSum() * Level;
+                if (this.SlotMachine.GetCurrentSymbols()[0] == SlotSymbol.BAR)
+                {
+                    this.OnJackpot?.Invoke(this, EventArgs.Empty);
+                }
+                else
+                {
+                    this.OnThreeSymbolWin?.Invoke(this, EventArgs.Empty);
+                }
                 break;
             default:
+                this.OnLose?.Invoke(this, EventArgs.Empty);
                 this.Score -= 2 * this.SlotMachine.GetMultiple();
                 if (this.Level > 1)
                 {
@@ -65,6 +82,7 @@ public class Game
 
     private void StopTimer()
     {
+        this.OnRollEnd?.Invoke(this, EventArgs.Empty);
         IsRolling = false;
         this.timer.Stop();
     }
@@ -80,6 +98,7 @@ public class Game
         this.SlotMachine.RollNext();
         this.timer.Interval = GetCurrentInterval();
         this.timer.Start();
+        this.OnRollStart?.Invoke(this, EventArgs.Empty);
         IsRolling = true;
     }
     
