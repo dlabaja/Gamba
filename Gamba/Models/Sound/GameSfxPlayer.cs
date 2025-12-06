@@ -15,7 +15,11 @@ public class GameSfxPlayer : SoundManager
         this.player2 = new MediaPlayer(this.libVLC);
         this.player3 = new MediaPlayer(this.libVLC);
         Controller.Game.OnNextRoll += (_, _) => PlayRollSfx();
-        Controller.Game.OnRollStart += (_, _) => PlayLeverDownSfx();
+        Controller.Game.OnRollStart += (_, _) =>
+        {
+            PlayRollSfx();
+            PlayLeverDownSfx();
+        };
         Controller.Game.OnRollEnd += (_, _) => PlayLeverUpSfx();
         Controller.Game.OnTwoSymbolWin += (_, _) => PlayWin2Sfx();
         Controller.Game.OnThreeSymbolWin += (_, _) => PlayWin3Sfx();
@@ -44,4 +48,11 @@ public class GameSfxPlayer : SoundManager
     public void PlayLeverDownSfx() => this.PlaySfx(this.player2, "lever-down.mp3");
 
     public void PlayLeverUpSfx() => this.PlaySfx(this.player2, "lever-up.mp3");
+    
+    public void Dispose()
+    {
+        this.player.Dispose();
+        this.player2.Dispose();
+        this.player3.Dispose();
+    }
 }

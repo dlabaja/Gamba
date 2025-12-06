@@ -12,19 +12,21 @@ public class SoundManager
     {
         var media = new Media(this.libVLC, path);
         player.Media = media;
-        player.EndReached -= MusicPlayerOnEndReached;
-        player.Play();
 
         if (loop)
         {
+            player.EndReached -= MusicPlayerOnEndReached;
             player.EndReached += MusicPlayerOnEndReached;
         }
+        
+        player.Play();
     }
 
     private void MusicPlayerOnEndReached(object? sender, EventArgs e)
     {
         if (sender is MediaPlayer player)
         {
+            player.Stop();
             player.Play();
         }
     }

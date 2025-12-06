@@ -2,8 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:slot="clr-namespace:Gamba.Views.Controls.Slot"
              xmlns:viewModels="clr-namespace:Gamba.ViewModels"
+             xmlns:slotRow="clr-namespace:Gamba.Views.Controls.SlotRow"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Gamba.Views.GameView"
              x:DataType="viewModels:GameViewModel">
@@ -18,48 +18,9 @@
                 Width="200"
                 Height="200"
                 HorizontalAlignment="Left">
-                
-                <!-- NEXT -->
-                <ItemsControl Grid.Row="0" ItemsSource="{Binding Next}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <slot:Slot Symbol="{Binding}"/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-                
-                <!-- CURR -->
-                <ItemsControl Grid.Row="1" ItemsSource="{Binding Current}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <slot:Slot Symbol="{Binding}" />
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-                
-                <!-- PREV -->
-                <ItemsControl Grid.Row="2" ItemsSource="{Binding Prev}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <slot:Slot Symbol="{Binding}" />
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                <slotRow:SlotRow Grid.Row="0" Symbols="{Binding Next}" />
+                <slotRow:SlotRow Grid.Row="1" Symbols="{Binding Current}" />
+                <slotRow:SlotRow Grid.Row="2" Symbols="{Binding Prev}" />
             </Grid>
             <Button
                 Command="{Binding RollCommand}"

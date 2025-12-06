@@ -24,12 +24,7 @@ public static class Controller
         }
     } = new MenuView();
 
-    static Controller()
-    {
-        StartSounds();
-    }
-
-    static void StartSounds()
+    public static void Start()
     {
         try
         {
@@ -39,6 +34,8 @@ public static class Controller
         {
             Console.WriteLine("Cannot init sound library");
         }
+        if (Design.IsDesignMode) return; // hudba hrála i v preview v IDE
+        musicPlayer.Start();
     }
     
     public static void RenderMenu()
@@ -61,5 +58,11 @@ public static class Controller
     public static void RenderStats()
     {
         CurrentView = new StatsView();
+    }
+
+    public static void Dispose()
+    {
+        gameSfxPlayer.Dispose();
+        musicPlayer.Dispose();
     }
 }

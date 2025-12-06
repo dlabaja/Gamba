@@ -38,5 +38,8 @@ public class GameViewModel : ViewModel
     {
         OnPropertyChanged(nameof(Score));
         OnPropertyChanged(nameof(Level));
+        OnPropertyChanged(nameof(Next));
+        OnPropertyChanged(nameof(Current));
+        OnPropertyChanged(nameof(Prev));
     }
 }
