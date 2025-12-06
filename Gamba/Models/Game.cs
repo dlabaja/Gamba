@@ -77,6 +77,7 @@ public class Game
     
     public void StartRoll()
     {
+        this.SlotMachine.RollNext();
         this.timer.Interval = GetCurrentInterval();
         this.timer.Start();
         IsRolling = true;

@@ -14,20 +14,52 @@
         </StackPanel>
         <WrapPanel>
             <Grid
-                ColumnDefinitions="*,*,*"
                 RowDefinitions="*,*,*"
                 Width="200"
                 Height="200"
                 HorizontalAlignment="Left">
-                <slot:Slot Grid.Row="0" Grid.Column="0" Symbol="{Binding Next0}"/>
-                <slot:Slot Grid.Row="0" Grid.Column="1" Symbol="{Binding Next1}"/>
-                <slot:Slot Grid.Row="0" Grid.Column="2" Symbol="{Binding Next2}"/>
-                <slot:Slot Grid.Row="1" Grid.Column="0" Symbol="{Binding Curr0}"/>
-                <slot:Slot Grid.Row="1" Grid.Column="1" Symbol="{Binding Curr1}"/>
-                <slot:Slot Grid.Row="1" Grid.Column="2" Symbol="{Binding Curr2}"/>
-                <slot:Slot Grid.Row="2" Grid.Column="0" Symbol="{Binding Prev0}"/>
-                <slot:Slot Grid.Row="2" Grid.Column="1" Symbol="{Binding Prev1}"/>
-                <slot:Slot Grid.Row="2" Grid.Column="2" Symbol="{Binding Prev2}"/>
+                
+                <!-- NEXT -->
+                <ItemsControl Grid.Row="0" ItemsSource="{Binding Next}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <slot:Slot Symbol="{Binding}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                
+                <!-- CURR -->
+                <ItemsControl Grid.Row="1" ItemsSource="{Binding Current}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <slot:Slot Symbol="{Binding}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                
+                <!-- PREV -->
+                <ItemsControl Grid.Row="2" ItemsSource="{Binding Prev}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <slot:Slot Symbol="{Binding}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </Grid>
             <Button
                 Command="{Binding RollCommand}"
