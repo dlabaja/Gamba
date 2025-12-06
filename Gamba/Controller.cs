@@ -10,7 +10,8 @@ namespace Gamba;
 public static class Controller
 {
     public static Game Game { get; private set; } = new Game();
-    public static GameSfxPlayer GameSfxPlayer { get; private set; } = new GameSfxPlayer();
+    private static GameSfxPlayer gameSfxPlayer = new GameSfxPlayer();
+    private static MusicPlayer musicPlayer = new MusicPlayer();
     public static Highscore Highscore { get; } = new Highscore();
     public static event EventHandler? OnViewChange;
     public static UserControl CurrentView
@@ -24,6 +25,11 @@ public static class Controller
     } = new MenuView();
 
     static Controller()
+    {
+        StartSounds();
+    }
+
+    static void StartSounds()
     {
         try
         {
@@ -43,7 +49,7 @@ public static class Controller
     public static void RenderGame()
     {
         Game = new Game();
-        GameSfxPlayer = new GameSfxPlayer();
+        gameSfxPlayer = new GameSfxPlayer();
         CurrentView = new GameView();
     }
 
