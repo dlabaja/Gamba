@@ -1,9 +1,8 @@
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Avalonia.Media;
+using Avalonia.Threading;
 using Gamba.ViewModels;
-using System.Threading.Tasks;
+using System;
 
 namespace Gamba.Views;
 
@@ -12,15 +11,45 @@ public partial class GameView : UserControl
     public GameView()
     {
         InitializeComponent();
-        DataContext = new GameViewModel();
+        var model = new GameViewModel();
+        model.BeforeNextRoll += ResetPositions;
+        model.AfterNextRoll += StartAnimation;
+        DataContext = model;
     }
-    
-    private void SpinButton_OnClick(object? sender, RoutedEventArgs e)
+
+    private void StartAnimation(object? sender, EventArgs eventArgs)
     {
         // znásilňuju ty jejich CSS pseudotřídy abych dělal animace
-        Next.IsEnabled = false;
-        Current.IsEnabled = false;
-        Prev.IsEnabled = false;
+        Dispatcher.UIThread.Post(() =>
+            {
+                Top.IsEnabled = false;
+                Next.IsEnabled = false;
+                Current.IsEnabled = false;
+                Prev.IsEnabled = false;
+            },
+            DispatcherPriority.Background);
+
+    }
+
+    private void ResetPositions(object? sender, EventArgs eventArgs)
+    {
+        Dispatcher.UIThread.Post(() =>
+            {
+                Top.IsEnabled = true;
+                Next.IsEnabled = true;
+                Current.IsEnabled = true;
+                Prev.IsEnabled = true;
+            },
+            DispatcherPriority.Background);
+    }
+
+    private void Button_OnClick(object? sender, RoutedEventArgs e)
+    {
+        StartAnimation(null, EventArgs.Empty);
+    }
+
+    private void Button_OnClickk(object? sender, RoutedEventArgs e)
+    {
+        ResetPositions(null, EventArgs.Empty);
     }
 }
-

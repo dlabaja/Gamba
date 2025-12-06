@@ -36,7 +36,7 @@ public class Game
 
     private double GetCurrentInterval()
     {
-        return Math.Clamp(300 - 10 * Level, 40, 300);
+        return 1000; //Math.Clamp(300 - 10 * Level, 40, 300);
     }
 
     private void EvaluateLevel()

@@ -14,9 +14,10 @@
         </StackPanel>
         <WrapPanel>
             <Canvas Width="300" Height="300" ClipToBounds="True">
-                <slotRow:SlotRow Height="200" Canvas.Top="0" Symbols="{Binding Next}" Name="Next" />
-                <slotRow:SlotRow Height="200" Canvas.Top="100" Symbols="{Binding Current}" Name="Current" />
-                <slotRow:SlotRow Height="200" Canvas.Top="200" Symbols="{Binding Prev}" Name="Prev" />
+                <slotRow:SlotRow Canvas.Top="-100" Symbols="{Binding Top}" Name="Top" />
+                <slotRow:SlotRow Canvas.Top="0" Symbols="{Binding Next}" Name="Next" />
+                <slotRow:SlotRow Canvas.Top="100" Symbols="{Binding Current}" Name="Current" />
+                <slotRow:SlotRow Canvas.Top="200" Symbols="{Binding Prev}" Name="Prev" />
             </Canvas>
             <Button
                 Command="{Binding RollCommand}"
@@ -24,9 +25,14 @@
                 Gamba
             </Button>
             <Button
-                Click="SpinButton_OnClick"
+                Click="Button_OnClick"
                 HorizontalAlignment="Right">
-                Spin
+                Start
+            </Button>
+            <Button
+                Click="Button_OnClickk"
+                HorizontalAlignment="Right">
+                Reset
             </Button>
             <Button
                 Command="{Binding EndGameCommand}"

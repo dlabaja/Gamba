@@ -18,6 +18,11 @@ public class SlotMachine
             .Key;
     }
 
+    public SlotSymbol[] GetTopSymbols()
+    {
+        return this.GetSymbols(drum => drum.TopSymbol);
+    }
+    
     public SlotSymbol[] GetNextSymbols()
     {
         return this.GetSymbols(drum => drum.NextSymbol);

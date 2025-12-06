@@ -7,22 +7,26 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Gamba.Views.Controls.SlotRow.SlotRow">
     <UserControl.Styles>
-        <Style Selector="StackPanel.Row">
-            <Setter Property="RenderTransform" Value="translateY(0)"/>
+        <Style Selector="StackPanel.Row:disabled">
             <Setter Property="Transitions">
                 <Transitions>
-                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2"/>
+                    <TransformOperationsTransition 
+                        Property="RenderTransform" 
+                        Duration="0:0:0.3" 
+                        Easing="CubicEaseIn"
+                    />
                 </Transitions>
             </Setter>
-        </Style>
-        <Style Selector="StackPanel.Row:disabled">
             <Setter Property="RenderTransform" Value="translateY(100px)"/>
         </Style>
-    </UserControl.Styles>
+        <Style Selector="StackPanel.Row:enabled">
+            <Setter Property="RenderTransform" Value="translateY(0)"/>
+        </Style>
+    </UserControl.Styles> 
     <ItemsControl ItemsSource="{Binding Symbols, RelativeSource={RelativeSource AncestorType=slotRow:SlotRow}}">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <StackPanel Width="300" Classes="Row" Orientation="Horizontal"/>
+                <StackPanel Height="200" Width="300" Classes="Row" Orientation="Horizontal"/>
             </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
