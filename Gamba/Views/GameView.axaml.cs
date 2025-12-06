@@ -22,9 +22,20 @@ public partial class GameView : UserControl
     private void StartAnimation(object? sender, EventArgs eventArgs)
     {
         currentCount++;
-        Dispatcher.UIThread.Post(() =>
+        Console.WriteLine("c" + currentCount);
+        Dispatcher.UIThread.Post(
+            () =>
             {
+                if (CanvasPanel.IsEnabled)
+                {
+                    CanvasPanel.IsEnabled = false;
+                }
                 CanvasPanel.Margin = new Thickness(0, 0, 0, -currentCount * 100);
+                if (currentCount > 10)
+                {
+                    CanvasPanel.IsEnabled = true;
+                    this.currentCount = 0;
+                }
             },
             DispatcherPriority.Background);
     }

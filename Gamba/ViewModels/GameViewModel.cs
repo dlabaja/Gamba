@@ -1,9 +1,7 @@
 using Gamba.Enums;
 using Gamba.ViewModels.Commands;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace Gamba.ViewModels;
 
@@ -13,6 +11,8 @@ public class GameViewModel : ViewModel
     public EndGameCommand EndGameCommand { get; } = new EndGameCommand();
     public int Score => Controller.Game.Score;
     public int Level => Controller.Game.Level;
+    
+    // last symbol is at start
     public ObservableCollection<SlotSymbol[]> Slots { get; } = new ObservableCollection<SlotSymbol[]>();
     public event EventHandler? AfterNextRoll;
     
@@ -21,10 +21,16 @@ public class GameViewModel : ViewModel
         this.RollCommand.OnExecute += RollCommandOnExecute;
         Controller.Game.OnNextRoll += OnNextRoll;
         Controller.Game.OnGameEnd += GameOnOnGameEnd;
-        Slots.Add(Controller.Game.SlotMachine.GetPrevSymbols());
-        Slots.Add(Controller.Game.SlotMachine.GetCurrentSymbols());
-        Slots.Add(Controller.Game.SlotMachine.GetNextSymbols());
+        this.ResetSlots();
+    }
+
+    private void ResetSlots()
+    {
+        this.Slots.Clear();
         Slots.Add(Controller.Game.SlotMachine.GetTopSymbols());
+        Slots.Add(Controller.Game.SlotMachine.GetNextSymbols());
+        Slots.Add(Controller.Game.SlotMachine.GetCurrentSymbols());
+        Slots.Add(Controller.Game.SlotMachine.GetPrevSymbols());
     }
 
     private void GameOnOnGameEnd(object? sender, EventArgs e)
@@ -34,8 +40,13 @@ public class GameViewModel : ViewModel
 
     private void OnNextRoll(object? sender, EventArgs e)
     {
-        Slots.Insert(0, Controller.Game.SlotMachine.GetTopSymbols());
+        this.Slots.Insert(0, Controller.Game.SlotMachine.GetTopSymbols());
+        Console.WriteLine(Slots.Count);
         this.AfterNextRoll?.Invoke(this, EventArgs.Empty);
+        if (this.Slots.Count > 10 + 4)
+        {
+            this.ResetSlots();
+        }
     }
 
     private void RollCommandOnExecute(object? sender, EventArgs eventArgs)

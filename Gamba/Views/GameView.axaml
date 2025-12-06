@@ -8,7 +8,7 @@
              x:Class="Gamba.Views.GameView"
              x:DataType="viewModels:GameViewModel">
     <UserControl.Styles>
-        <Style Selector="StackPanel.CanvasPanel">
+        <Style Selector="StackPanel.CanvasPanel:disabled">
             <Setter Property="Transitions">
                 <Transitions>
                     <ThicknessTransition 
