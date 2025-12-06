@@ -8,23 +8,26 @@
              x:Class="Gamba.Views.Controls.SlotRow.SlotRow">
     <UserControl.Styles>
         <Style Selector="StackPanel.Row">
-            <Setter Property="RenderTransform" Value="rotate(0)"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="ClipToBounds" Value="False"/>
+            <Setter Property="RenderTransform" Value="translateY(0)"/>
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2"/>
+                </Transitions>
+            </Setter>
         </Style>
-        <Style Selector="StackPanel.Row:pointerover">
-            <Setter Property="RenderTransform" Value="translateY(10px)"/>
+        <Style Selector="StackPanel.Row:disabled">
+            <Setter Property="RenderTransform" Value="translateY(100px)"/>
         </Style>
     </UserControl.Styles>
     <ItemsControl ItemsSource="{Binding Symbols, RelativeSource={RelativeSource AncestorType=slotRow:SlotRow}}">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <StackPanel Classes="Row" Orientation="Horizontal"/>
+                <StackPanel Width="300" Classes="Row" Orientation="Horizontal"/>
             </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <slot:Slot  Symbol="{Binding}"/>
+                <slot:Slot Symbol="{Binding}" Width="100"/>
             </DataTemplate>
         </ItemsControl.ItemTemplate>
     </ItemsControl>

@@ -22,7 +22,7 @@ public static class Controller
             field = value; // nějaká novinka, prý už nepotřebuju privátní pole
             OnViewChange?.Invoke(typeof(Controller), EventArgs.Empty);
         }
-    } = new MenuView();
+    } = new GameView();
 
     public static void Start()
     {

@@ -12,9 +12,9 @@
     <TextBlock
         HorizontalAlignment="Stretch"
         VerticalAlignment="Stretch"
+        TextAlignment="Center"
         FontFamily="Noto Color Emoji, Segoe UI Emoji"
-        FontSize="30"
-        Background="Transparent"
+        FontSize="60"
         ClipToBounds="False"
         Text="{Binding Symbol, 
         RelativeSource={RelativeSource AncestorType=slot:Slot}, 

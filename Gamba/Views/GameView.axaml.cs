@@ -1,5 +1,7 @@
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Avalonia.Media;
 using Gamba.ViewModels;
 using System.Threading.Tasks;
 
@@ -13,9 +15,12 @@ public partial class GameView : UserControl
         DataContext = new GameViewModel();
     }
     
-    private async void SpinButton_OnClick(object? sender, RoutedEventArgs e)
+    private void SpinButton_OnClick(object? sender, RoutedEventArgs e)
     {
-        //await Next.SpinAsync();
+        // znásilňuju ty jejich CSS pseudotřídy abych dělal animace
+        Next.IsEnabled = false;
+        Current.IsEnabled = false;
+        Prev.IsEnabled = false;
     }
 }
 
