@@ -14,6 +14,7 @@
         </StackPanel>
         <WrapPanel>
             <Canvas Width="300" Height="300" ClipToBounds="True">
+                <slotRow:SlotRow Canvas.Top="-200" Symbols="{Binding TopTop}" Name="TopTop" />
                 <slotRow:SlotRow Canvas.Top="-100" Symbols="{Binding Top}" Name="Top" />
                 <slotRow:SlotRow Canvas.Top="0" Symbols="{Binding Next}" Name="Next" />
                 <slotRow:SlotRow Canvas.Top="100" Symbols="{Binding Current}" Name="Current" />

@@ -7,6 +7,8 @@ namespace Gamba.Models;
 public class SlotDrum
 {
     private readonly SlotSymbol[] slotSymbols = Enum.GetValues<SlotSymbol>();
+    public SlotSymbol TopTopSymbol { get; private set; }
+
     public SlotSymbol TopSymbol { get; private set; }
 
     public SlotSymbol NextSymbol { get; private set; }
@@ -19,6 +21,7 @@ public class SlotDrum
         CurrentSymbol = this.GetRandomSymbol();
         NextSymbol = this.GetRandomSymbol();
         TopSymbol = this.GetRandomSymbol();
+        TopTopSymbol = this.GetRandomSymbol();
     }
 
     private SlotSymbol GetRandomSymbol()
@@ -36,6 +39,7 @@ public class SlotDrum
         this.PrevSymbol = this.CurrentSymbol;
         this.CurrentSymbol = this.NextSymbol;
         this.NextSymbol = this.TopSymbol;
-        this.TopSymbol = GetRandomSymbol();
+        this.TopSymbol = this.TopTopSymbol;
+        this.TopTopSymbol = GetRandomSymbol();
     }
 }

@@ -22,19 +22,20 @@ public partial class GameView : UserControl
         // znásilňuju ty jejich CSS pseudotřídy abych dělal animace
         Dispatcher.UIThread.Post(() =>
             {
+                TopTop.IsEnabled = false;
                 Top.IsEnabled = false;
                 Next.IsEnabled = false;
                 Current.IsEnabled = false;
                 Prev.IsEnabled = false;
             },
             DispatcherPriority.Background);
-
     }
 
     private void ResetPositions(object? sender, EventArgs eventArgs)
     {
         Dispatcher.UIThread.Post(() =>
             {
+                TopTop.IsEnabled = true;
                 Top.IsEnabled = true;
                 Next.IsEnabled = true;
                 Current.IsEnabled = true;
