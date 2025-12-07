@@ -41,6 +41,7 @@ public class Game
 
     private void EvaluateLevel()
     {
+        Console.WriteLine(string.Join(",", this.SlotMachine.GetCurrentSymbols()));
         var sameSymbolCount = this.SlotMachine.NumberOfSameSymbols();
         switch (sameSymbolCount)
         {

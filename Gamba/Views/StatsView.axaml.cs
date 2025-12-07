@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Gamba.ViewModels;
 
 namespace Gamba.Views;
@@ -9,6 +10,11 @@ public partial class StatsView : UserControl
     {
         InitializeComponent();
         this.DataContext = new StatsViewModel();
+    }
+
+    private void Button_OnClick(object? sender, RoutedEventArgs e)
+    {
+        Controller.RenderMenu();
     }
 }
 

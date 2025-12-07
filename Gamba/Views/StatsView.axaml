@@ -6,16 +6,45 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Gamba.Views.StatsView"
              x:DataType="viewModels:StatsViewModel">
-    <StackPanel>
-        <ItemsControl ItemsSource="{Binding Highscore}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid ColumnDefinitions="*,*">
-                        <TextBlock Grid.Column="0" Text="{Binding Username}" />
-                        <TextBlock Grid.Column="1" Text="{Binding Score}" />
-                    </Grid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </StackPanel>
+    <UserControl.Styles>
+        <Style Selector="TextBlock.Stat">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="DemiBold" />
+        </Style>
+    </UserControl.Styles>
+    <Grid ColumnDefinitions="*,*,*" Margin="16">
+        <Button
+            Click="Button_OnClick"
+            VerticalAlignment="Top"
+            Content="Back to menu" />
+        <StackPanel Grid.Column="1">
+            <TextBlock
+                FontSize="36"
+                FontWeight="DemiBold"
+                Margin="0 0 0 16"
+                HorizontalAlignment="Center"
+                Text="Stats" />
+            <Border BorderThickness="2" BorderBrush="Black">
+                <ItemsControl ItemsSource="{Binding Highscore}" MaxWidth="200">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="*,*">
+                                <TextBlock
+                                    Margin="0  0 8 0"
+                                    Classes="Stat"
+                                    Text="{Binding Username, StringFormat={}{0}:}"
+                                    HorizontalAlignment="Right" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="8 0 0 0"
+                                    Classes="Stat"
+                                    Text="{Binding Score}"
+                                    HorizontalAlignment="Left" />
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Border>
+        </StackPanel>
+    </Grid>
 </UserControl>

@@ -17,7 +17,6 @@ public class RollCommand : ICommand
         Controller.Game.OnNextRoll += (_, _) =>
         {
             counter++;
-            Console.WriteLine(counter);
             RaiseCanExecuteChanged();
         };
     }
