@@ -9,7 +9,7 @@
     <ItemsControl ItemsSource="{Binding Symbols, RelativeSource={RelativeSource AncestorType=slotRow:SlotRow}}">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <StackPanel Height="100" Width="300" Classes="Row" Orientation="Horizontal"/>
+                <StackPanel Height="100" Width="300" Orientation="Horizontal"/>
             </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
