@@ -37,7 +37,6 @@ public partial class GameView : UserControl
     private void Handle_OnClick(object? sender, RoutedEventArgs e)
     {
         Handle.Source = this.isHandleDown ? this.handleUp : this.handleDown;
-
         this.isHandleDown = !this.isHandleDown;
     }
 }

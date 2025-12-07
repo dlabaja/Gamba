@@ -8,43 +8,54 @@
         <Style Selector="StackPanel.CanvasPanel">
             <Setter Property="Transitions">
                 <Transitions>
-                    <ThicknessTransition 
-                        Property="Margin" 
-                        Duration="0:0:0.3" 
-                        Easing="CubicEaseOut"
-                    />
+                    <ThicknessTransition
+                        Property="Margin"
+                        Duration="0:0:0.3"
+                        Easing="CubicEaseOut" />
                 </Transitions>
             </Setter>
         </Style>
-    </UserControl.Styles> 
-    <StackPanel>
-        <StackPanel>
-            <TextBlock Text="{Binding Level, StringFormat=Level: {0}}" />
-            <TextBlock Text="{Binding Score, StringFormat=Score: {0}}" />
+        <Style Selector="TextBlock.Info">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="DemiBold"></Setter>
+        </Style>
+    </UserControl.Styles>
+    <Grid ColumnDefinitions="*,*,*">
+        <StackPanel Margin="16">
+            <TextBlock Classes="Info" Text="{Binding Level, StringFormat=Level: {0}}" />
+            <TextBlock Classes="Info" Text="{Binding Score, StringFormat=Score: {0}}" />
         </StackPanel>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel
+            Margin="0 30 0 0 "
+            Height="660"
+            Orientation="Horizontal"
+            Grid.Column="1">
+            <Image
+                ZIndex="1"
+                Height="50"
+                Margin="0 140 -30 0"
+                Source="avares://Gamba/Assets/img/arrow.png" />
             <StackPanel Width="350">
                 <Image
                     MaxWidth="350"
-                    Source="avares://Gamba/Assets/img/machine-top.png"
-                    />
+                    Source="avares://Gamba/Assets/img/machine-top.png" />
                 <Grid Width="350" ColumnDefinitions="25,300,25" HorizontalAlignment="Center">
-                    <Image 
+                    <Image
                         Height="300"
                         Width="25"
-                        Source="avares://Gamba/Assets/img/machine-side.png"/>
+                        Source="avares://Gamba/Assets/img/machine-side.png" />
                     <Canvas
                         Grid.Column="1"
-                        Width="300" 
-                        Height="300" 
-                        ClipToBounds="True" 
-                        VerticalAlignment="Bottom" 
+                        Width="300"
+                        Height="300"
+                        ClipToBounds="True"
+                        VerticalAlignment="Bottom"
                         HorizontalAlignment="Stretch">
                         <StackPanel Name="CanvasPanel" Canvas.Bottom="0" Classes="CanvasPanel" Width="300">
                             <ItemsControl ItemsSource="{Binding Slots}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <slotRow:SlotRow Symbols="{Binding}"/>
+                                        <slotRow:SlotRow Symbols="{Binding}" />
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
@@ -55,27 +66,31 @@
                         Height="300"
                         Width="25"
                         HorizontalAlignment="Stretch"
-                        Source="avares://Gamba/Assets/img/machine-side.png"/>
+                        Source="avares://Gamba/Assets/img/machine-side.png" />
                 </Grid>
-                <Image Source="avares://Gamba/Assets/img/machine-bottom.png"/>
+                <Image
+                    Margin="0 -20 0 0"
+                    Source="avares://Gamba/Assets/img/machine-bottom.png" />
             </StackPanel>
             <Button
                 Background="Transparent"
                 Click="Handle_OnClick"
                 Command="{Binding RollCommand}"
                 VerticalAlignment="Bottom"
+                Margin="-28 -50 0 180"
                 HorizontalAlignment="Right">
                 <Image
                     Name="Handle"
                     MaxHeight="500"
                     Width="100"
-                    Source="avares://Gamba/Assets/img/lever-up.png"/>
+                    Source="avares://Gamba/Assets/img/lever-up.png" />
             </Button>
         </StackPanel>
         <Button
+            Grid.Column="2"
             Command="{Binding EndGameCommand}"
             HorizontalAlignment="Right">
             Give up
         </Button>
-    </StackPanel>
+    </Grid>
 </UserControl>
