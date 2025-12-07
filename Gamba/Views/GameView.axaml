@@ -2,6 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:viewModels="clr-namespace:Gamba.ViewModels"
              xmlns:slotRow="clr-namespace:Gamba.Views.Controls.SlotRow"
+             xmlns:slot="clr-namespace:Gamba.Views.Controls.Slot"
+             xmlns:slotWithLabel="clr-namespace:Gamba.Views.Controls.SlotWithLabel"
              x:Class="Gamba.Views.GameView"
              x:DataType="viewModels:GameViewModel">
     <UserControl.Styles>
@@ -20,8 +22,8 @@
             <Setter Property="FontWeight" Value="DemiBold"></Setter>
         </Style>
     </UserControl.Styles>
-    <Grid ColumnDefinitions="*,*,*">
-        <StackPanel Margin="16">
+    <Grid ColumnDefinitions="*,*,*" Margin="16">
+        <StackPanel>
             <TextBlock Classes="Info" Text="{Binding Level, StringFormat=Level: {0}}" />
             <TextBlock Classes="Info" Text="{Binding Score, StringFormat=Score: {0}}" />
             <Button 
@@ -36,7 +38,7 @@
             </Button>
         </StackPanel>
         <StackPanel
-            Margin="0 30 0 0 "
+            Margin="0 16 0 0 "
             Height="660"
             Orientation="Horizontal"
             Grid.Column="1">
@@ -95,6 +97,13 @@
                     Width="100"
                     Source="avares://Gamba/Assets/img/lever-up.png" />
             </Button>
+        </StackPanel>
+        <StackPanel Grid.Column="2">
+            <slotWithLabel:SlotWithLabel Symbol="BAR" Label="5" HorizontalAlignment="Right"/>
+            <slotWithLabel:SlotWithLabel Symbol="DIAMOND" Label="4" HorizontalAlignment="Right"/>
+            <slotWithLabel:SlotWithLabel Symbol="ORANGE" Label="3" HorizontalAlignment="Right"/>
+            <slotWithLabel:SlotWithLabel Symbol="CHERRY" Label="2" HorizontalAlignment="Right"/>
+            <slotWithLabel:SlotWithLabel Symbol="LEMON" Label="1" HorizontalAlignment="Right"/>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -9,12 +9,12 @@
     <ItemsControl ItemsSource="{Binding Symbols, RelativeSource={RelativeSource AncestorType=slotRow:SlotRow}}">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <StackPanel Height="100" Width="300" Orientation="Horizontal"/>
+                <StackPanel Height="100" Width="300" Orientation="Horizontal" />
             </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <slot:Slot Symbol="{Binding}" Width="100"/>
+                <slot:Slot Symbol="{Binding}" Width="100" FontSize="60" />
             </DataTemplate>
         </ItemsControl.ItemTemplate>
     </ItemsControl>

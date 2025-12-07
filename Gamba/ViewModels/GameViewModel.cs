@@ -2,7 +2,6 @@ using Gamba.Enums;
 using Gamba.ViewModels.Commands;
 using System;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace Gamba.ViewModels;
 
@@ -44,6 +43,8 @@ public class GameViewModel : ViewModel
 
     private void OnNextRoll(object? sender, EventArgs e)
     {
+        // tohle po několika desetitisících točkách asi přeteče z paměti
+        // zkoušel jsem to fixnout do tří do rána, ale dělá se to těžko bez toho aby se rozbila animace
         this.Slots.Insert(0, Controller.Game.SlotMachine.GetNextSymbols());
         this.AfterNextRoll?.Invoke(this, EventArgs.Empty);
     }

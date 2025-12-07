@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:slot="clr-namespace:Gamba.Views.Controls.Slot"
+             xmlns:slotWithLabel="clr-namespace:Gamba.Views.Controls.SlotWithLabel"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Gamba.Views.Controls.SlotWithLabel.SlotWithLabel">
+    <StackPanel Orientation="Horizontal">
+        <slot:Slot
+            FontSize="36"
+            Symbol="{Binding Symbol, RelativeSource={RelativeSource AncestorType=slotWithLabel:SlotWithLabel}}" />
+        <TextBlock
+            TextAlignment="Right"
+            FontSize="36"
+            FontWeight="DemiBold"
+            Text="{Binding Label, RelativeSource={RelativeSource AncestorType=slotWithLabel:SlotWithLabel}, StringFormat=: {0}}"/>
+    </StackPanel>
+</UserControl>

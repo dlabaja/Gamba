@@ -14,7 +14,6 @@
         VerticalAlignment="Stretch"
         TextAlignment="Center"
         FontFamily="Noto Color Emoji, Segoe UI Emoji"
-        FontSize="60"
         ClipToBounds="False"
         Text="{Binding Symbol, 
         RelativeSource={RelativeSource AncestorType=slot:Slot}, 
