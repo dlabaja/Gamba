@@ -45,6 +45,7 @@ public class GameViewModel : ViewModel
     {
         // tohle po několika desetitisících točkách asi přeteče z paměti
         // zkoušel jsem to fixnout do tří do rána, ale dělá se to těžko bez toho aby se rozbila animace
+        // teoreticky je to pojistka domu proti tomu, aby někdo gamblil moc dlouho a získal vysoký skóre
         this.Slots.Insert(0, Controller.Game.SlotMachine.GetNextSymbols());
         this.AfterNextRoll?.Invoke(this, EventArgs.Empty);
     }
