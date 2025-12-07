@@ -31,10 +31,11 @@ public partial class GameView : UserControl
                     CanvasPanel.IsEnabled = false;
                 }
                 CanvasPanel.Margin = new Thickness(0, 0, 0, -currentCount * 100);
-                if (currentCount > 10)
+                if (currentCount > 11)
                 {
                     CanvasPanel.IsEnabled = true;
                     this.currentCount = 0;
+                    CanvasPanel.Margin = new Thickness(0, 0, 0, -100);
                 }
             },
             DispatcherPriority.Background);

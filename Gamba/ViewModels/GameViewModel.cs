@@ -27,10 +27,9 @@ public class GameViewModel : ViewModel
     private void ResetSlots()
     {
         this.Slots.Clear();
-        Slots.Add(Controller.Game.SlotMachine.GetTopSymbols());
-        Slots.Add(Controller.Game.SlotMachine.GetNextSymbols());
-        Slots.Add(Controller.Game.SlotMachine.GetCurrentSymbols());
-        Slots.Add(Controller.Game.SlotMachine.GetPrevSymbols());
+        this.Slots.Insert(0, Controller.Game.SlotMachine.GetPrevSymbols());
+        this.Slots.Insert(0, Controller.Game.SlotMachine.GetCurrentSymbols());
+        this.Slots.Insert(0, Controller.Game.SlotMachine.GetNextSymbols());
     }
 
     private void GameOnOnGameEnd(object? sender, EventArgs e)
@@ -40,12 +39,14 @@ public class GameViewModel : ViewModel
 
     private void OnNextRoll(object? sender, EventArgs e)
     {
-        this.Slots.Insert(0, Controller.Game.SlotMachine.GetTopSymbols());
+        this.Slots.Insert(0, Controller.Game.SlotMachine.GetCurrentSymbols());
         Console.WriteLine(Slots.Count);
         this.AfterNextRoll?.Invoke(this, EventArgs.Empty);
-        if (this.Slots.Count > 10 + 4)
+        if (this.Slots.Count > 10 + 3)
         {
-            this.ResetSlots();
+            this.Slots.Clear();
+            this.Slots.Insert(0, Controller.Game.SlotMachine.GetPrevSymbols());
+            this.Slots.Insert(0, Controller.Game.SlotMachine.GetCurrentSymbols());
         }
     }
 

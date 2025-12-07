@@ -17,11 +17,6 @@ public class SlotMachine
             .First()
             .Key;
     }
-
-    public SlotSymbol[] GetTopTopSymbols()
-    {
-        return this.GetSymbols(drum => drum.TopTopSymbol);
-    }
     
     public SlotSymbol[] GetTopSymbols()
     {
