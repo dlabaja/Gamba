@@ -9,7 +9,11 @@ public class SubmitUsernameCommand : ICommand
 
     public void Execute(object? parameter)
     {
-        Controller.Highscore.Add(parameter?.ToString() ?? "", Controller.Game.Score);
+        if (string.IsNullOrWhiteSpace(parameter?.ToString()))
+        {
+            return;
+        }
+        Controller.Highscore.Add(parameter.ToString() ?? "Anonymous", Controller.Game.Score);
         Controller.RenderMenu();
     }
 

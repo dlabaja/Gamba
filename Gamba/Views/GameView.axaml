@@ -24,6 +24,16 @@
         <StackPanel Margin="16">
             <TextBlock Classes="Info" Text="{Binding Level, StringFormat=Level: {0}}" />
             <TextBlock Classes="Info" Text="{Binding Score, StringFormat=Score: {0}}" />
+            <Button 
+                PointerEntered="GiveUp_OnPointerEntered"
+                PointerExited="GiveUp_OnPointerExited"
+                Command="{Binding EndGameCommand}">
+                <TextBlock
+                    Name="GiveUpText"
+                    Text="Stop gambling?"
+                    TextWrapping="WrapWithOverflow"
+                    />
+            </Button>
         </StackPanel>
         <StackPanel
             Margin="0 30 0 0 "
@@ -86,11 +96,5 @@
                     Source="avares://Gamba/Assets/img/lever-up.png" />
             </Button>
         </StackPanel>
-        <Button
-            Grid.Column="2"
-            Command="{Binding EndGameCommand}"
-            HorizontalAlignment="Right">
-            Give up
-        </Button>
     </Grid>
 </UserControl>

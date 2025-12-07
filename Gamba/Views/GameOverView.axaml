@@ -6,13 +6,32 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Gamba.Views.GameOverView"
              x:DataType="viewModels:GameOverViewModel">
-    <StackPanel>
-        <TextBlock Text="Game over"/>
-        <TextBlock Text="{Binding Score}"/>
-        <TextBox Text="{Binding Username}"/>
-        <Button 
-            Content="Confirm" 
-            Command="{Binding SubmitUsernameCommand}" 
-            CommandParameter="{Binding Username}"/>
-    </StackPanel>
+    <Grid ColumnDefinitions="*,*,*">
+        <StackPanel Grid.Column="1">
+            <TextBlock
+                FontSize="36"
+                FontWeight="DemiBold"
+                Text="Game over"
+                HorizontalAlignment="Center"/>
+            <TextBlock
+                Margin="0 0 0 16"
+                HorizontalAlignment="Center"
+                Text="{Binding Score, StringFormat=Total score: {0}}"/>
+            <Grid ColumnDefinitions="*,Auto" Width="300">
+                <TextBox 
+                    Watermark="Write down your name"
+                    Margin="0 0 8 0"
+                    Text="{Binding Username}"/>
+                <Button 
+                    Grid.Column="1"
+                    Content="Confirm" 
+                    Command="{Binding SubmitUsernameCommand}" 
+                    CommandParameter="{Binding Username}"/>
+            </Grid>
+            <Image
+                Margin="0 24 0 0"
+                Width="400"
+                Source="avares://Gamba/Assets/img/game-over.png"/>
+        </StackPanel>
+    </Grid>
 </UserControl>
