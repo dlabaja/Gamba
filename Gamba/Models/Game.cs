@@ -31,7 +31,6 @@ public class Game
     private void TimerOnElapsed(object? sender, ElapsedEventArgs e)
     {
         this.SlotMachine.RollNext();
-        Console.WriteLine(string.Join(",", this.SlotMachine.GetCurrentSymbols()));
         this.OnNextRoll?.Invoke(this, EventArgs.Empty);
     }
 
@@ -96,7 +95,6 @@ public class Game
     
     public void StartRoll()
     {
-        this.SlotMachine.RollNext();
         this.timer.Interval = GetCurrentInterval();
         this.timer.Start();
         this.OnRollStart?.Invoke(this, EventArgs.Empty);

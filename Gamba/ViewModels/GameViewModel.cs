@@ -2,6 +2,7 @@ using Gamba.Enums;
 using Gamba.ViewModels.Commands;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Gamba.ViewModels;
 
@@ -21,10 +22,14 @@ public class GameViewModel : ViewModel
         this.RollCommand.OnExecute += RollCommandOnExecute;
         Controller.Game.OnNextRoll += OnNextRoll;
         Controller.Game.OnGameEnd += GameOnOnGameEnd;
-        this.ResetSlots();
+        for (int i = 0; i < 10 + 3; i++)
+        {
+            this.Slots.Add([]);
+        }
+        this.InitSlots();
     }
 
-    private void ResetSlots()
+    private void InitSlots()
     {
         this.Slots.Clear();
         this.Slots.Insert(0, Controller.Game.SlotMachine.GetPrevSymbols());
@@ -39,15 +44,8 @@ public class GameViewModel : ViewModel
 
     private void OnNextRoll(object? sender, EventArgs e)
     {
-        this.Slots.Insert(0, Controller.Game.SlotMachine.GetCurrentSymbols());
-        Console.WriteLine(Slots.Count);
+        this.Slots.Insert(0, Controller.Game.SlotMachine.GetNextSymbols());
         this.AfterNextRoll?.Invoke(this, EventArgs.Empty);
-        if (this.Slots.Count > 10 + 3)
-        {
-            this.Slots.Clear();
-            this.Slots.Insert(0, Controller.Game.SlotMachine.GetPrevSymbols());
-            this.Slots.Insert(0, Controller.Game.SlotMachine.GetCurrentSymbols());
-        }
     }
 
     private void RollCommandOnExecute(object? sender, EventArgs eventArgs)
